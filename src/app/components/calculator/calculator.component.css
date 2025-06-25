@@ -1,0 +1,38 @@
+.project-links {
+
+    display: flex;
+    justify-content: center;
+    /* ✅ Center horizontally */
+    flex-wrap: wrap;
+    /* ✅ Wrap on smaller screens */
+    gap: 10px;
+    /* ✅ Space between buttons */
+    margin-top: 3rem;
+}
+
+.project-links button {
+    border-radius: 20px;
+    margin-top: 50px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    padding: 6px 16px;
+    transition: all 0.2s ease;
+    backdrop-filter: blur(5px);
+    background-color: rgba(255, 255, 255, 0.12);
+    color: #000000;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    text-align: center;
+    white-space: nowrap;
+    border: 1px solid rgba(0, 0, 0, 0.354);
+}
+
+.project-links button:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: scale(1.05);
+    text-decoration: none;
+}
+
+.text-danger {
+    color: rgba(255, 0, 0, 0.932) !important;
+    font-weight: 550;
+}
