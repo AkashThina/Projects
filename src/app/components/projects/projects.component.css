@@ -1,0 +1,59 @@
+:host {
+    display: block;
+    /* background: linear-gradient(135deg, #61abff 0%, #2183f3c9 100%); */
+    padding: 3rem 1rem;
+    min-height: 100vh;
+}
+
+
+/* Glassy translucent effect */
+.project-card {
+    background: rgba(255, 255, 255, 0.08);
+    /* glass background */
+    backdrop-filter: blur(15px);
+    /* blur effect */
+    -webkit-backdrop-filter: blur(15px);
+    /* Safari support */
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    color: #000000a1;
+    padding: 25px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+}
+
+.project-card .card-title {
+    font-size: 1.2rem;
+    font-weight: bolder;
+    color: #000000a1;
+    margin-bottom: 15px;
+}
+
+.project-card .card-text {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #000000a1;
+}
+
+.project-links a {
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    padding: 6px 16px;
+    transition: all 0.2s ease;
+    backdrop-filter: blur(5px);
+    background-color: rgba(255, 255, 255, 0.12);
+    color: #000000a1;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.project-links a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: scale(1.05);
+    text-decoration: none;
+}

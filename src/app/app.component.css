@@ -1,0 +1,102 @@
+.background-animation {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.floating-shapes {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.shape {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    animation: float 6s ease-in-out infinite;
+}
+
+.shape.shape-1 {
+  width: 80px;
+  height: 80px;
+  top: 15%;
+  left: 5%;
+  animation-delay: 0s;
+}
+
+.shape.shape-2 {
+  width: 60px;
+  height: 60px;
+  top: 65%;
+  right: 15%;
+  animation-delay: 2s;
+}
+
+.shape.shape-3 {
+  width: 100px;
+  height: 100px;
+  bottom: 25%;
+  left: 30%;
+  animation-delay: 4s;
+}
+
+.shape.shape-4 {
+  width: 40px;
+  height: 40px;
+  top: 5%;
+  right: 20%;
+  animation-delay: 1s;
+}
+
+/* Additional shapes with different positions */
+.shape.shape-5 {
+  width: 70px;
+  height: 70px;
+  top: 80%;
+  left: 10%;
+  animation-delay: 3s;
+}
+
+.shape.shape-6 {
+  width: 50px;
+  height: 50px;
+  bottom: 5%;
+  right: 15%;
+  animation-delay: 5s;
+}
+
+.shape.shape-7 {
+  width: 90px;
+  height: 90px;
+  top: 35%;
+  left: 60%;
+  animation-delay: 1.5s;
+}
+
+.shape.shape-8 {
+  width: 60px;
+  height: 60px;
+  bottom: 35%;
+  left: 75%;
+  animation-delay: 2.2s;
+}
+
+
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0px) rotate(0deg);
+        opacity: 0.7;
+    }
+
+    50% {
+        transform: translateY(-20px) rotate(180deg);
+        opacity: 1;
+    }
+}

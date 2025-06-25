@@ -1,0 +1,52 @@
+<nav class="navbar navbar-expand-lg custom-navbar">
+    <div class="container-fluid">
+        <!-- Mobile menu button -->
+        <button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarNav" (click)="onMenuToggle()">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Navigation links -->
+        <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+            <ul class="navbar-nav nav-pills-custom">
+                <li class="nav-item" style="cursor: pointer;">
+                    <a class="nav-link" (click)="gotoHome()">
+                        <i class="fas fa-home me-2"></i>Home
+                    </a>
+                </li>
+                <li class="nav-item" style="cursor: pointer;">
+                    <a class="nav-link" (click)="gotoExplore()">
+                        <i class="fas fa-user me-2"></i>Explore
+                    </a>
+                </li>
+                <li class="nav-item" style="cursor: pointer;">
+                    <a class="nav-link" (click)="downloadResume()">
+                        <i class="fas fa-download me-2"></i>Resume
+                    </a>
+                </li>
+                <li class="nav-item" style="cursor: pointer;">
+                    <a class="nav-link" (click)="gotoProjects()">
+                        <i class="fas fa-code me-2"></i>Projects
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Settings button -->
+        <button class="btn settings-btn ms-auto" type="button" (click)="toggleSidebar()">
+            <i class="fas fa-cog"></i>
+        </button>
+
+        <!-- Custom Sidebar -->
+        <div class="custom-sidebar" [class.open]="isSidebarOpen">
+            <button class="card btn btn-close position-absolute top-0 end-0 m-3 p-2 border-0" (click)="toggleSidebar()">
+            
+            </button>
+
+            <div class="sidebar-content mt-5">
+                <p>Settings Panel</p>
+            </div>
+        </div>
+
+    </div>
+</nav>

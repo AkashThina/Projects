@@ -1,0 +1,136 @@
+.custom-navbar {
+    /* background: linear-gradient(135deg, #61abff 0%, #2183f3c9 100%); */
+    padding: 0.75rem 1rem;
+    box-shadow: 0 2px 10px rgba(30, 124, 232, 0.3);
+}
+
+.nav-pills-custom {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.nav-pills-custom .nav-link {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #000000a1;
+    border-radius: 25px;
+    padding: 0.6rem 1.5rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    white-space: nowrap;
+}
+
+.nav-pills-custom .nav-link:hover {
+    background-color: rgba(102, 198, 239, 0.409);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+
+
+.nav-pills-custom .nav-link i {
+    font-size: 1rem;
+}
+
+.custom-toggler {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 12px;
+    padding: 0.5rem;
+}
+
+.custom-toggler:focus {
+    box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.25);
+}
+
+/* .custom-toggler .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+} */
+
+.settings-btn {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #000000a1;
+    border-radius: 12px;
+    padding: 0.6rem 0.8rem;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.settings-btn:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.settings-btn i {
+    font-size: 1.1rem;
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 991.98px) {
+    .nav-pills-custom {
+        flex-direction: column;
+        align-items: center;
+        margin-top: 1rem;
+    }
+
+    .nav-pills-custom .nav-link {
+        margin-bottom: 0.5rem;
+        width: 200px;
+        text-align: center;
+    }
+
+    .settings-btn {
+        position: absolute;
+        right: 1rem;
+        top: 0.75rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .nav-pills-custom .nav-link {
+        width: 100%;
+        margin-bottom: 0.3rem;
+    }
+
+    .custom-navbar {
+        padding: 0.5rem 1rem;
+    }
+}
+
+.custom-sidebar {
+    position: fixed;
+    top: 0;
+    right: -300px;
+    width: 300px;
+    height: 100vh;
+    background-color: #fff;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.3);
+    transition: right 0.3s ease-in-out;
+    z-index: 1050;
+    padding: 1rem;
+}
+
+.custom-sidebar.open {
+    right: 0;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    float: right;
+}
+
+@media (max-width: 576px) {
+    .custom-sidebar {
+        width: 60vw;
+        /* Only cover 80% of the screen */
+    }
+}
