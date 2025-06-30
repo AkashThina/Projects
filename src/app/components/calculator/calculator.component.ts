@@ -1,10 +1,14 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import jsPDF from 'jspdf';
-import autoTable from 'jspdf-autotable';
 import pdfMake from 'pdfmake/build/pdfmake';
 import pdfFonts from 'pdfmake/build/vfs_fonts';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+// import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatIconModule } from '@angular/material/icon';
+// import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 pdfMake.vfs = pdfFonts.vfs;
 
@@ -12,7 +16,11 @@ pdfMake.vfs = pdfFonts.vfs;
 
 @Component({
   selector: 'app-calculator',
-  imports: [ReactiveFormsModule, CommonModule],
+  imports: [ReactiveFormsModule, CommonModule,
+    MatDatepickerModule, MatDatepickerModule,
+    MatInputModule, MatNativeDateModule,
+    MatIconModule ,
+  ],
   templateUrl: './calculator.component.html',
   styleUrl: './calculator.component.css'
 })
@@ -20,6 +28,9 @@ export class CalculatorComponent {
   calculatorForm!: FormGroup;
   show: boolean = false
   tableData: any[] = [];
+
+  // filter data
+  filteredData: any
   constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
@@ -27,12 +38,15 @@ export class CalculatorComponent {
       initialAmount: [null, [Validators.required, Validators.min(1)]],
       numberOfYears: [null, [Validators.required, Validators.min(1)]],
       stepUpDuration: [null, [Validators.required, Validators.min(1)]],
-      stepUpValue: [null, [Validators.required, Validators.min(0)]]
+      stepUpValue: [null, [Validators.required, Validators.min(0)]],
+      startDate: [''], // optional validation
+      endDate: ['']
     });
   }
 
   onSubmit(): void {
     if (this.calculatorForm.valid) {
+
       this.show = true;
       const { initialAmount, numberOfYears, stepUpValue, stepUpDuration } = this.calculatorForm.value;
       const totalMonths = numberOfYears * 12;
@@ -65,7 +79,8 @@ export class CalculatorComponent {
         }
       }
 
-      this.tableData = data;
+      this.tableData = data;          // Save full data
+      this.filteredData = [...data];
     } else {
       this.show = false;
       this.calculatorForm.markAllAsTouched();
@@ -111,7 +126,7 @@ export class CalculatorComponent {
   downloadPDF(): void {
     const tableBody = [
       ['S.No', 'Month - Year', 'Investment Amount (₹)', 'Cumulative Investment (₹)'], // Header row
-      ...this.tableData.map(row => [
+      ...(this.filteredData || this.tableData).map((row: { sNo: any; displayMonth: any; amount: any; cumulative: any; }) => [
         row.sNo,
         row.displayMonth,
         `₹${row.amount}`,
@@ -158,4 +173,31 @@ export class CalculatorComponent {
 
     pdfMake.createPdf(docDefinition).download('investment-table.pdf');
   }
+
+  filterTable() {
+    const start = this.calculatorForm.get('startDate')?.value;
+    const end = this.calculatorForm.get('endDate')?.value;
+
+    if (start && end) {
+      const startDate = new Date(start);
+      const endDate = new Date(end);
+
+      this.filteredData = this.tableData.filter(row => {
+        const rowDate = new Date(row.displayMonth + ' 1'); // e.g., "Jun 2025 1"
+
+        // Compare using Year and Month only to include the full month
+        const isInRange =
+          (rowDate.getFullYear() > startDate.getFullYear() ||
+            (rowDate.getFullYear() === startDate.getFullYear() && rowDate.getMonth() >= startDate.getMonth())) &&
+          (rowDate.getFullYear() < endDate.getFullYear() ||
+            (rowDate.getFullYear() === endDate.getFullYear() && rowDate.getMonth() <= endDate.getMonth()));
+
+        return isInRange;
+      });
+    } else {
+      this.filteredData = [...this.tableData]; // No filter → show all
+    }
+  }
+
+
 }

@@ -2,79 +2,104 @@
     <form [formGroup]="calculatorForm" (submit)="onSubmit()">
         <div class="row mt-4 g-3">
             <div class="col-12 col-md-6 col-lg-3">
-                <div class="form-floating">
-                    <input type="text" class="form-control" autocomplete="off" id="initialAmount" (keypress)="numberOnly($event)"
-                        [ngClass]="{
-                        'is-invalid': calculatorForm.get('initialAmount')?.invalid && (calculatorForm.get('initialAmount')?.dirty || calculatorForm.get('initialAmount')?.touched),
-                        'is-valid': calculatorForm.get('initialAmount')?.valid && (calculatorForm.get('initialAmount')?.dirty || calculatorForm.get('initialAmount')?.touched)}"
-                        formControlName="initialAmount" placeholder="Initial Amount (₹)">
-                    <label for="initialAmount">Initial Amount (₹)</label>
-                    <div *ngIf="calculatorForm.get('initialAmount')?.errors?.['required'] && (calculatorForm.get('initialAmount')?.touched || calculatorForm.get('initialAmount')?.dirty)"
-                        class="invalid-feedback text-danger">
+                <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>Initial Amount (₹)</mat-label>
+                    <input matInput type="text" autocomplete="off" formControlName="initialAmount"
+                        placeholder="Initial Amount (₹)" (keypress)="numberOnly($event)"
+                        [class.is-invalid]="calculatorForm.get('initialAmount')?.invalid && (calculatorForm.get('initialAmount')?.touched || calculatorForm.get('initialAmount')?.dirty)" />
+                    <mat-error
+                        *ngIf="calculatorForm.get('initialAmount')?.hasError('required') && (calculatorForm.get('initialAmount')?.touched || calculatorForm.get('initialAmount')?.dirty)">
                         Initial Amount is required
-                    </div>
-                </div>
+                    </mat-error>
+                </mat-form-field>
+
             </div>
 
 
             <!-- Number of Years -->
             <div class="col-12 col-md-6 col-lg-3">
-                <div class="form-floating">
-                    <input type="text" id="numberOfYears" autocomplete="off" class="form-control" min="1" formControlName="numberOfYears"
-                        (keypress)="numberOnly($event)" placeholder="Number of Years"
-                        [ngClass]="{
-                        'is-invalid': calculatorForm.get('numberOfYears')?.invalid && (calculatorForm.get('numberOfYears')?.touched || calculatorForm.get('numberOfYears')?.dirty),
-                        'is-valid': calculatorForm.get('numberOfYears')?.valid && (calculatorForm.get('numberOfYears')?.touched || calculatorForm.get('numberOfYears')?.dirty)}">
-                    <label for="numberOfYears">Number of Years</label>
-                    <div class="invalid-feedback text-danger">
-                        <div *ngIf="calculatorForm.get('numberOfYears')?.errors?.['required']">Number of Years is
-                            required
-                        </div>
-                        <div *ngIf="calculatorForm.get('numberOfYears')?.errors?.['min']">Must be at least 1 year</div>
-                    </div>
-                </div>
+                <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>Number of Years</mat-label>
+                    <input matInput type="text" id="numberOfYears" autocomplete="off" placeholder="Number of Years"
+                        formControlName="numberOfYears" (keypress)="numberOnly($event)" />
+                    <mat-error
+                        *ngIf="calculatorForm.get('numberOfYears')?.hasError('required') && (calculatorForm.get('numberOfYears')?.touched || calculatorForm.get('numberOfYears')?.dirty)">
+                        Number of Years is required
+                    </mat-error>
+                    <mat-error *ngIf="calculatorForm.get('numberOfYears')?.hasError('min')">
+                        Must be at least 1 year
+                    </mat-error>
+                </mat-form-field>
+
 
             </div>
 
             <!-- Step-Up Duration -->
             <div class="col-12 col-md-6 col-lg-3">
-                <div class="form-floating">
-                    <input type="text" id="stepUpDuration" autocomplete="off" class="form-control" min="1" formControlName="stepUpDuration"
-                        (keypress)="numberOnly($event)" placeholder="Step-Up Duration (Months)"
-                        [ngClass]="{
-                        'is-invalid': calculatorForm.get('stepUpDuration')?.invalid && (calculatorForm.get('stepUpDuration')?.touched || calculatorForm.get('stepUpDuration')?.dirty),
-                        'is-valid': calculatorForm.get('stepUpDuration')?.valid && (calculatorForm.get('stepUpDuration')?.touched || calculatorForm.get('stepUpDuration')?.dirty)}">
-                    <label for="stepUpDuration">Step-Up Duration (Months)</label>
-                    <div class="invalid-feedback text-danger">
-                        <div *ngIf="calculatorForm.get('stepUpDuration')?.errors?.['required']">Step-Up Duration is
-                            required
-                        </div>
-                        <div *ngIf="calculatorForm.get('stepUpDuration')?.errors?.['min']">Must be at least 1 month
-                        </div>
-                    </div>
-                </div>
+                <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>Step-Up Duration (Months)</mat-label>
+                    <input matInput type="text" id="stepUpDuration" autocomplete="off"
+                        placeholder="Step-Up Duration (Months)" formControlName="stepUpDuration"
+                        (keypress)="numberOnly($event)" />
+                    <mat-error
+                        *ngIf="calculatorForm.get('stepUpDuration')?.hasError('required') && (calculatorForm.get('stepUpDuration')?.touched || calculatorForm.get('stepUpDuration')?.dirty)">
+                        Step-Up Duration is required
+                    </mat-error>
+                    <mat-error *ngIf="calculatorForm.get('stepUpDuration')?.hasError('min')">
+                        Must be at least 1 month
+                    </mat-error>
+                </mat-form-field>
+
 
             </div>
 
             <!-- Step-Up Value -->
             <div class="col-12 col-md-6 col-lg-3">
-                <div class="form-floating">
-                    <input type="text" id="stepUpValue" autocomplete="off" class="form-control" min="0" formControlName="stepUpValue"
-                        (keypress)="numberOnly($event)" placeholder="Step-Up Value (₹)"
-                        [ngClass]="{
-                        'is-invalid': calculatorForm.get('stepUpValue')?.invalid && (calculatorForm.get('stepUpValue')?.touched || calculatorForm.get('stepUpValue')?.dirty),
-                        'is-valid': calculatorForm.get('stepUpValue')?.valid && (calculatorForm.get('stepUpValue')?.touched || calculatorForm.get('stepUpValue')?.dirty)}">
-                    <label for="stepUpValue">Step-Up Value (₹)</label>
-                    <div class="invalid-feedback text-danger">
-                        <div *ngIf="calculatorForm.get('stepUpValue')?.errors?.['required']">Step-Up Value is required
-                        </div>
-                        <div *ngIf="calculatorForm.get('stepUpValue')?.errors?.['min']">Must be at least ₹0</div>
-                    </div>
-                </div>
+                <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>Step-Up Value (₹)</mat-label>
+                    <input matInput type="text" id="stepUpValue" autocomplete="off" placeholder="Step-Up Value (₹)"
+                        formControlName="stepUpValue" (keypress)="numberOnly($event)" />
+                    <mat-error
+                        *ngIf="calculatorForm.get('stepUpValue')?.hasError('required') && (calculatorForm.get('stepUpValue')?.touched || calculatorForm.get('stepUpValue')?.dirty)">
+                        Step-Up Value is required
+                    </mat-error>
+                    <mat-error *ngIf="calculatorForm.get('stepUpValue')?.hasError('min')">
+                        Must be at least ₹0
+                    </mat-error>
+                </mat-form-field>
 
+            </div>
+        </div>
+        <div class="row mt-4 g-3" *ngIf="show">
+            <!-- Start Date -->
+            <div class="col-12 col-md-6 col-lg-3">
+                <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>Start Date</mat-label>
+                    <input matInput [matDatepicker]="startPicker2" formControlName="startDate"
+                        placeholder="Select start date" readonly>
+                    <mat-datepicker-toggle matSuffix [for]="startPicker2"></mat-datepicker-toggle>
+                    <mat-datepicker #startPicker2></mat-datepicker>
+                </mat-form-field>
+            </div>
+
+            <!-- End Date -->
+            <div class="col-12 col-md-6 col-lg-3">
+                <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>End Date</mat-label>
+                    <input matInput [matDatepicker]="endPicker2" formControlName="endDate" placeholder="Select end date"
+                        readonly>
+                    <mat-datepicker-toggle matSuffix [for]="endPicker2"></mat-datepicker-toggle>
+                    <mat-datepicker #endPicker2></mat-datepicker>
+                </mat-form-field>
+            </div>
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="project-links" style="justify-content: left; margin-left: 20px;">
+                    <button type="button" (click)="filterTable()">Filter </button>
+                </div>
             </div>
 
         </div>
+
 
         <div class="mt-2 mb-5 project-links ">
             <button type="submit">Calculate</button>
@@ -84,8 +109,8 @@
     </form>
 
     <div class="container" *ngIf="show">
-        <div class="table-responsive"> 
-            <table id="myTable"class="mx-auto table table-bordered table-striped table-hover mt-4 w-75 text-center"
+        <div class="table-responsive">
+            <table id="myTable" class="mx-auto table table-bordered table-striped table-hover mt-4 w-75 text-center"
                 *ngIf="tableData.length > 0">
                 <thead class="table-light">
                     <tr>
@@ -96,7 +121,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let row of tableData">
+                    <tr *ngFor="let row of filteredData">
                         <td>{{ row.sNo }})</td>
                         <td>{{ row.displayMonth }}</td>
                         <td>₹{{ row.amount }}</td>
