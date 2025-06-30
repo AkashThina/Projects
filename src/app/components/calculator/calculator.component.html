@@ -5,7 +5,7 @@
                 <mat-form-field appearance="outline" class="w-100">
                     <mat-label>Initial Amount (₹)</mat-label>
                     <input matInput type="text" autocomplete="off" formControlName="initialAmount"
-                        placeholder="Initial Amount (₹)" (keypress)="numberOnly($event)"
+                        (keypress)="numberOnly($event)"
                         [class.is-invalid]="calculatorForm.get('initialAmount')?.invalid && (calculatorForm.get('initialAmount')?.touched || calculatorForm.get('initialAmount')?.dirty)" />
                     <mat-error
                         *ngIf="calculatorForm.get('initialAmount')?.hasError('required') && (calculatorForm.get('initialAmount')?.touched || calculatorForm.get('initialAmount')?.dirty)">
@@ -20,7 +20,7 @@
             <div class="col-12 col-md-6 col-lg-3">
                 <mat-form-field appearance="outline" class="w-100">
                     <mat-label>Number of Years</mat-label>
-                    <input matInput type="text" id="numberOfYears" autocomplete="off" placeholder="Number of Years"
+                    <input matInput type="text" id="numberOfYears" autocomplete="off"
                         formControlName="numberOfYears" (keypress)="numberOnly($event)" />
                     <mat-error
                         *ngIf="calculatorForm.get('numberOfYears')?.hasError('required') && (calculatorForm.get('numberOfYears')?.touched || calculatorForm.get('numberOfYears')?.dirty)">
@@ -39,7 +39,7 @@
                 <mat-form-field appearance="outline" class="w-100">
                     <mat-label>Step-Up Duration (Months)</mat-label>
                     <input matInput type="text" id="stepUpDuration" autocomplete="off"
-                        placeholder="Step-Up Duration (Months)" formControlName="stepUpDuration"
+                        formControlName="stepUpDuration"
                         (keypress)="numberOnly($event)" />
                     <mat-error
                         *ngIf="calculatorForm.get('stepUpDuration')?.hasError('required') && (calculatorForm.get('stepUpDuration')?.touched || calculatorForm.get('stepUpDuration')?.dirty)">
@@ -57,7 +57,7 @@
             <div class="col-12 col-md-6 col-lg-3">
                 <mat-form-field appearance="outline" class="w-100">
                     <mat-label>Step-Up Value (₹)</mat-label>
-                    <input matInput type="text" id="stepUpValue" autocomplete="off" placeholder="Step-Up Value (₹)"
+                    <input matInput type="text" id="stepUpValue" autocomplete="off" 
                         formControlName="stepUpValue" (keypress)="numberOnly($event)" />
                     <mat-error
                         *ngIf="calculatorForm.get('stepUpValue')?.hasError('required') && (calculatorForm.get('stepUpValue')?.touched || calculatorForm.get('stepUpValue')?.dirty)">
@@ -76,7 +76,7 @@
                 <mat-form-field appearance="outline" class="w-100">
                     <mat-label>Start Date</mat-label>
                     <input matInput [matDatepicker]="startPicker2" formControlName="startDate"
-                        placeholder="Select start date" readonly>
+                          [max]="minDate" readonly>
                     <mat-datepicker-toggle matSuffix [for]="startPicker2"></mat-datepicker-toggle>
                     <mat-datepicker #startPicker2></mat-datepicker>
                 </mat-form-field>
@@ -86,8 +86,8 @@
             <div class="col-12 col-md-6 col-lg-3">
                 <mat-form-field appearance="outline" class="w-100">
                     <mat-label>End Date</mat-label>
-                    <input matInput [matDatepicker]="endPicker2" formControlName="endDate" placeholder="Select end date"
-                        readonly>
+                    <input matInput [matDatepicker]="endPicker2" formControlName="endDate" 
+                        [min]="minDate" readonly>
                     <mat-datepicker-toggle matSuffix [for]="endPicker2"></mat-datepicker-toggle>
                     <mat-datepicker #endPicker2></mat-datepicker>
                 </mat-form-field>

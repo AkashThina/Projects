@@ -23,8 +23,8 @@ export class ProjectsComponent {
       code: '#'
     },
     {
-      title: 'User Profile Dashboard',
-      description: 'Display and manage user profiles in card views with CRUD operations and status indicators.',
+      title: 'Chat Box Ai',
+      description: 'Highcharts-powered dashboard that renders various chart types (bar, line, column) dynamically from JSON configurations. Designed for enterprise-level data visualizations with dark/light theme support, responsive design, and reusable chart structures',
       demo: '#',
       code: '#'
     },
@@ -57,9 +57,12 @@ export class ProjectsComponent {
     if (project.title === 'Financial Step-Up Calculators') {
       this.route.navigate(['calculator']);
     }
-    // else if(project.title === 'Dynamic Components - Forms'){
-    //   this.route.navigate(['dynamicForm']);
-    // }
+    else if(project.title === 'Dynamic Components - Forms'){
+      this.route.navigate(['dynamicForm']);
+    }
+    else if(project.title === 'Chat Box Ai'){
+       this.route.navigate(['chatboxai']);
+    }
     else{
       console.log("No Routing is matched");
       

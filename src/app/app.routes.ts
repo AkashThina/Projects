@@ -5,6 +5,7 @@ import { ResumeComponent } from './components/resume/resume.component';
 import { ProjectsComponent } from './components/projects/projects.component';
 import { CalculatorComponent } from './components/calculator/calculator.component';
 import { DynamicFormComponent } from './components/dynamic-form/dynamic-form.component';
+import { ChatBoxComponent } from './components/chat-box/chat-box.component';
 
 export const routes: Routes = [
     {path:'',redirectTo:'/home',pathMatch:'full'},
@@ -14,4 +15,5 @@ export const routes: Routes = [
     {path:'projects',component:ProjectsComponent},
     {path:'calculator',component:CalculatorComponent},
     {path:'dynamicForm',component:DynamicFormComponent},
+    {path:'chatboxai',component:ChatBoxComponent},
 ];

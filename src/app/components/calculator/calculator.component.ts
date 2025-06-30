@@ -29,9 +29,12 @@ export class CalculatorComponent {
   show: boolean = false
   tableData: any[] = [];
 
+ minDate: Date = new Date(new Date().setHours(0, 0, 0, 0)); // set time to 00:00:00
+
   // filter data
   filteredData: any
   constructor(private fb: FormBuilder) { }
+
 
   ngOnInit(): void {
     this.calculatorForm = this.fb.group({
