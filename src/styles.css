@@ -1,5 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 body{
-    background: linear-gradient(135deg, #a4cdfb 0%, #0b7dffc9 100%);
-
-}
+    /* background: linear-gradient(135deg, #a4cdfb 0%, #0b7dffc9 100%); */
+    /* background-image: url('../public/h2.gif') !important;
+    background-repeat: no-repeat;
+    background-size: cover; */
+    background-color: rgb(0, 0, 0);
+    
+}   

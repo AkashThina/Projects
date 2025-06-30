@@ -3,7 +3,7 @@
         <div class="row mt-4 g-3">
             <div class="col-12 col-md-6 col-lg-3">
                 <div class="form-floating">
-                    <input type="text" class="form-control" id="initialAmount" (keypress)="numberOnly($event)"
+                    <input type="text" class="form-control" autocomplete="off" id="initialAmount" (keypress)="numberOnly($event)"
                         [ngClass]="{
                         'is-invalid': calculatorForm.get('initialAmount')?.invalid && (calculatorForm.get('initialAmount')?.dirty || calculatorForm.get('initialAmount')?.touched),
                         'is-valid': calculatorForm.get('initialAmount')?.valid && (calculatorForm.get('initialAmount')?.dirty || calculatorForm.get('initialAmount')?.touched)}"
@@ -20,7 +20,7 @@
             <!-- Number of Years -->
             <div class="col-12 col-md-6 col-lg-3">
                 <div class="form-floating">
-                    <input type="text" id="numberOfYears" class="form-control" min="1" formControlName="numberOfYears"
+                    <input type="text" id="numberOfYears" autocomplete="off" class="form-control" min="1" formControlName="numberOfYears"
                         (keypress)="numberOnly($event)" placeholder="Number of Years"
                         [ngClass]="{
                         'is-invalid': calculatorForm.get('numberOfYears')?.invalid && (calculatorForm.get('numberOfYears')?.touched || calculatorForm.get('numberOfYears')?.dirty),
@@ -39,7 +39,7 @@
             <!-- Step-Up Duration -->
             <div class="col-12 col-md-6 col-lg-3">
                 <div class="form-floating">
-                    <input type="text" id="stepUpDuration" class="form-control" min="1" formControlName="stepUpDuration"
+                    <input type="text" id="stepUpDuration" autocomplete="off" class="form-control" min="1" formControlName="stepUpDuration"
                         (keypress)="numberOnly($event)" placeholder="Step-Up Duration (Months)"
                         [ngClass]="{
                         'is-invalid': calculatorForm.get('stepUpDuration')?.invalid && (calculatorForm.get('stepUpDuration')?.touched || calculatorForm.get('stepUpDuration')?.dirty),
@@ -59,7 +59,7 @@
             <!-- Step-Up Value -->
             <div class="col-12 col-md-6 col-lg-3">
                 <div class="form-floating">
-                    <input type="text" id="stepUpValue" class="form-control" min="0" formControlName="stepUpValue"
+                    <input type="text" id="stepUpValue" autocomplete="off" class="form-control" min="0" formControlName="stepUpValue"
                         (keypress)="numberOnly($event)" placeholder="Step-Up Value (₹)"
                         [ngClass]="{
                         'is-invalid': calculatorForm.get('stepUpValue')?.invalid && (calculatorForm.get('stepUpValue')?.touched || calculatorForm.get('stepUpValue')?.dirty),

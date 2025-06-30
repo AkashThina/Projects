@@ -13,7 +13,7 @@
 
 .nav-pills-custom .nav-link {
     background-color: rgba(255, 255, 255, 0.1);
-    color: #000000a1;
+    color: #ffffffa1;
     border-radius: 25px;
     padding: 0.6rem 1.5rem;
     font-weight: 500;
@@ -54,7 +54,7 @@
 .settings-btn {
     background-color: rgba(255, 255, 255, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.3);
-    color: #000000a1;
+    color: #ffffffa1;
     border-radius: 12px;
     padding: 0.6rem 0.8rem;
     transition: all 0.3s ease;
@@ -134,3 +134,8 @@
         /* Only cover 80% of the screen */
     }
 }
+
+.custom-toggler .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255,0.63)' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+

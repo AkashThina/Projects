@@ -57,9 +57,9 @@ export class ProjectsComponent {
     if (project.title === 'Financial Step-Up Calculators') {
       this.route.navigate(['calculator']);
     }
-    else if(project.title === 'Dynamic Components - Forms'){
-      this.route.navigate(['dynamicForm']);
-    }
+    // else if(project.title === 'Dynamic Components - Forms'){
+    //   this.route.navigate(['dynamicForm']);
+    // }
     else{
       console.log("No Routing is matched");
       

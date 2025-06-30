@@ -1,9 +1,11 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { SafePipe } from '../../../assets/safe';
 
 @Component({
   selector: 'app-navbar',
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css'
 })
@@ -27,12 +29,14 @@ export class NavbarComponent {
   toggleSidebar() {
     this.isSidebarOpen = !this.isSidebarOpen;
   }
-  downloadResume() {
-    const link = document.createElement('a');
-    link.href = 'AkashThina%20Resume.pdf'; 
-    link.download = 'Akash_Resume.pdf';  
-    link.click();
-  }
+  // resumeUrl = 'assets/AkashThina_Resume.pdf';
+  // showPreview = false;
+
+ downloadResume() {
+  const fileUrl = 'AkashThina_Resume.pdf';
+  window.open(fileUrl, '_blank'); // Opens in a new tab
+}
+
   gotoExplore() {
     this.route.navigate(["explore"])
   }
