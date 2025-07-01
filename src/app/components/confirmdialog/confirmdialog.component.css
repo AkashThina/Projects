@@ -1,21 +1,10 @@
-.project-links {
-
-    display: flex;
-    justify-content: center;
-    /* ✅ Center horizontally */
-    flex-wrap: wrap;
-    /* ✅ Wrap on smaller screens */
-    gap: 10px;
-    /* ✅ Space between buttons */
-    /* margin-top: 3rem; */
-}
-
 .project-links button {
     border-radius: 20px;
     margin-top: 20px;
     font-size: 0.85rem;
     font-weight: 500;
     padding: 6px 16px;
+    margin-left: 5px;
     transition: all 0.2s ease;
     backdrop-filter: blur(10px);
     background-color: rgba(255, 255, 255, 0.12);
@@ -31,15 +20,4 @@
     transform: scale(1.05);
     text-decoration: none;
     color: rgb(255, 255, 255);
-}
-
-.text-danger {
-    color: rgba(255, 0, 0, 0.932) !important;
-    font-weight: 550;
-}
-.custom-field {
-    /* border: 1px solid #ccc; */
-    background-color: white !important;
-    border-radius: 4px;
-    padding: 10px;
 }

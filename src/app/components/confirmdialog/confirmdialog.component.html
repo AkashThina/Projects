@@ -1,0 +1,8 @@
+<h2 mat-dialog-title>Stop Game?</h2>
+<mat-dialog-content>
+    <p>Your score is {{ data.score }}. Do you want to stop?</p>
+</mat-dialog-content>
+<mat-dialog-actions class="project-links">
+    <button (click)="dialogRef.close(false)">No</button>
+    <button (click)="dialogRef.close(true)">Yes</button>
+</mat-dialog-actions>

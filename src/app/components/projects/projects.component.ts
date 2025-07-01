@@ -35,8 +35,8 @@ export class ProjectsComponent {
       code: '#'
     },
     {
-      title: 'Recipe App',
-      description: 'Cards for recipes with images, cooking time, and ingredient previews. Responsive and filterable.',
+      title: 'Typing Test',
+      description: 'Web-based application to evaluate and track typing performance. Includes real-time speed and accuracy analysis, a dynamic word display system, and responsive result cards with performance breakdown. Built using Bootstrap and vanilla JavaScript, with clean UI and exportable result tables.',
       demo: '#',
       code: '#'
     },
@@ -62,6 +62,9 @@ export class ProjectsComponent {
     }
     else if(project.title === 'Chat Box Ai'){
        this.route.navigate(['chatboxai']);
+    }
+     else if(project.title === 'Typing Test'){
+       this.route.navigate(['typingtest']);
     }
     else{
       console.log("No Routing is matched");

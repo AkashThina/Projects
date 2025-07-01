@@ -6,6 +6,7 @@ import { ProjectsComponent } from './components/projects/projects.component';
 import { CalculatorComponent } from './components/calculator/calculator.component';
 import { DynamicFormComponent } from './components/dynamic-form/dynamic-form.component';
 import { ChatBoxComponent } from './components/chat-box/chat-box.component';
+import { TypingTestComponent } from './components/typing-test/typing-test.component';
 
 export const routes: Routes = [
     {path:'',redirectTo:'/home',pathMatch:'full'},
@@ -16,4 +17,5 @@ export const routes: Routes = [
     {path:'calculator',component:CalculatorComponent},
     {path:'dynamicForm',component:DynamicFormComponent},
     {path:'chatboxai',component:ChatBoxComponent},
+    {path:'typingtest',component:TypingTestComponent},
 ];

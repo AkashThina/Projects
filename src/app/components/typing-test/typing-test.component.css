@@ -1,0 +1,102 @@
+.game-container {
+    position: relative;
+    height: 450px;
+    color: white;
+    overflow: hidden;
+    border: 1px solid #ccc;
+}
+
+.falling-word {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: top 1s linear;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.project-links button {
+    border-radius: 20px;
+    margin-top: 10px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    padding: 6px 16px;
+    margin-left: 5px;
+    transition: all 0.2s ease;
+    backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, 0.12);
+    color: #ffffff90;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    text-align: center;
+    white-space: nowrap;
+    border: 1px solid rgba(0, 0, 0, 0.354);
+}
+
+.project-links button:hover {
+    background-color: #ffffff90;
+    transform: scale(1.05);
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+}
+.game-wrapper {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* vertical */
+  align-items: center;     /* horizontal */
+  gap: 20px;
+}
+
+@media (max-width: 600px) {
+  .game-wrapper {
+    padding: 0 1rem;
+    gap: 15px;
+  }
+
+  .scoreboard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 5px;
+  }
+
+  .project-links {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .project-links button {
+    width: 100%;
+    max-width: 200px;
+  }
+
+  mat-form-field.w-50 {
+    margin-top: 40px;
+    width: 100% !important;
+  }
+}
+.miss-line {
+  width: 100%;
+  height: 2px;
+  background-color: red;
+  position: relative;
+  margin-bottom: 10px;
+}
+@media (max-width: 768px) {
+  .miss-line {
+    bottom: 120px; /* adjust for mobile layout if necessary */
+  }
+}
+@media (max-width: 576px) {
+  .d-flex i {
+    align-self: flex-start;
+    margin-top: 0.2rem;
+  }
+}
+
+
+
+

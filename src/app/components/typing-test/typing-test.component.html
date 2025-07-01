@@ -1,0 +1,33 @@
+<div class="game-container m-0 p-0">
+    <div class="falling-word mt-3" *ngFor="let word of fallingWords" [style.top.%]="word.position">
+        {{ word.text }}
+    </div>
+
+    <div class="container">
+        <div class="game-wrapper">
+            <div class="miss-line w-25 mt-3"></div>
+
+            <mat-form-field appearance="outline" class="w-50">
+                <mat-label>Type word</mat-label>
+                <input matInput [(ngModel)]="typedWord" (keyup.enter)="checkTypedWord()">
+            </mat-form-field>
+
+            <div class="scoreboard">
+                <p>✅ Score : {{ score }}</p>
+                <p>❌ Missed : {{ missed }}</p>
+            </div>
+
+            <div class="project-links">
+                <button (click)="startGame()">Start</button>
+                <button (click)="stopGame()">Stop</button>
+                <button (click)="reset()">Reset</button>
+            </div>
+            <div class="d-flex align-items-center">
+                <i class="fa fa-info-circle text-warning me-2"></i>
+                <p class="text-danger mb-0">
+                    Words reaching the red line are considered <strong>Missed</strong>. Type quickly to score!
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
