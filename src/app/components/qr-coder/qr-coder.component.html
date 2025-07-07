@@ -1,0 +1,26 @@
+<div class="container text-center mt-5">
+
+  <mat-form-field appearance="outline" class="w-50">
+    <mat-label>Enter Amount (₹)</mat-label>
+    <input matInput type="text" autocomplete="off" name="amount" (keypress)="numberOnly($event)" [(ngModel)]="amount" placeholder="e.g. 500" />
+  </mat-form-field>
+
+  <div class="project-links">
+    <button mat-raised-button color="primary" (click)="generateQR()" [disabled]="!amount">
+      Generate QR
+    </button>
+  </div>
+
+  <hr />
+
+  <div *ngIf="data && !isExpired">
+    <qrcode [qrdata]="data" [width]="220" colorDark="#1a73e8" colorLight="#ffffff"></qrcode>
+    <p class="text-success mt-2">Scan to Pay ₹{{ amount }} to <strong>{{ upiId }}</strong></p>
+    <p class="text-muted">QR expires in: {{ formatTime() }}</p>
+  </div>
+
+  <div *ngIf="isExpired">
+    <p class="text-danger mt-3">QR Code Expired. Please regenerate.</p>
+  </div>
+
+</div>

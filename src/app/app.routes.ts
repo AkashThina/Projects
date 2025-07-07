@@ -7,6 +7,7 @@ import { CalculatorComponent } from './components/calculator/calculator.componen
 import { DynamicFormComponent } from './components/dynamic-form/dynamic-form.component';
 import { ChatBoxComponent } from './components/chat-box/chat-box.component';
 import { TypingTestComponent } from './components/typing-test/typing-test.component';
+import { QrCoderComponent } from './components/qr-coder/qr-coder.component';
 
 export const routes: Routes = [
     {path:'',redirectTo:'/home',pathMatch:'full'},
@@ -18,4 +19,5 @@ export const routes: Routes = [
     {path:'dynamicForm',component:DynamicFormComponent},
     {path:'chatboxai',component:ChatBoxComponent},
     {path:'typingtest',component:TypingTestComponent},
+    {path:'qrgenerate',component:QrCoderComponent},
 ];

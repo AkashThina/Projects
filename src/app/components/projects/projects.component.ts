@@ -29,7 +29,7 @@ export class ProjectsComponent {
       code: '#'
     },
     {
-      title: 'Blog Post Gallery',
+      title: 'QR Generator',
       description: 'Grid layout of blog cards with titles, excerpts, and a detail view. Supports filtering and pagination.',
       demo: '#',
       code: '#'
@@ -63,12 +63,14 @@ export class ProjectsComponent {
     else if(project.title === 'Chat Box Ai'){
        this.route.navigate(['chatboxai']);
     }
-     else if(project.title === 'Typing Test'){
+    else if(project.title === 'Typing Test'){
        this.route.navigate(['typingtest']);
+    }
+    else if(project.title === 'QR Generator'){
+       this.route.navigate(['qrgenerate']);
     }
     else{
       console.log("No Routing is matched");
-      
     }
   }
 }

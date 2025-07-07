@@ -8,6 +8,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatInputModule } from '@angular/material/input';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatIconModule } from '@angular/material/icon';
+import { InputService } from '../../services/input.service';
 // import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 pdfMake.vfs = pdfFonts.vfs;
@@ -17,7 +18,7 @@ pdfMake.vfs = pdfFonts.vfs;
 @Component({
   selector: 'app-calculator',
   imports: [ReactiveFormsModule, CommonModule,
-    MatDatepickerModule, MatDatepickerModule,
+    MatDatepickerModule,
     MatInputModule, MatNativeDateModule,
     MatIconModule ,
   ],
@@ -33,7 +34,7 @@ export class CalculatorComponent {
 
   // filter data
   filteredData: any
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder,private input : InputService) { }
 
 
   ngOnInit(): void {
